@@ -32,21 +32,19 @@ public class MainActivity extends AppCompatActivity {
         vm.getSelectEM().observe(this, new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean aBoolean) {
-                if(aBoolean){
-                    binding.etDolar.setEnabled(false);
-                    binding.etEuros.setEnabled(true);
-                    binding.rbDolarEuro.setChecked(false);                }
+
+                    binding.etDolar.setEnabled(!aBoolean);
+                    binding.etEuros.setEnabled(aBoolean);
+                    binding.rbDolarEuro.setChecked(!aBoolean);
             }
         });
 
         vm.getSelectDM().observe(this, new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean aBoolean) {
-                if(aBoolean){
-                    binding.etEuros.setEnabled(false);
-                    binding.etDolar.setEnabled(true);
-                    binding.rbEuroDolar.setChecked(false);
-                }
+                    binding.etEuros.setEnabled(!aBoolean);
+                    binding.etDolar.setEnabled(aBoolean);
+                    binding.rbEuroDolar.setChecked(!aBoolean);
             }
         });
 
